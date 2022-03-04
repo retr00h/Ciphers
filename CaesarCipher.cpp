@@ -4,6 +4,7 @@
 class CaesarCipher : public Cipher {
   private:
     int key;
+    static const char diff = 'z' - 'a' + 1;
   public:
     inline CaesarCipher(int key);
     inline std::string encrypt(std::string plaintext) override;
@@ -17,16 +18,22 @@ CaesarCipher::CaesarCipher(int key) {
 
 std::string CaesarCipher::encrypt(std::string plaintext) {
   std::string ciphertext = "";
+  char newC;
   for (char c : plaintext) {
-    ciphertext += (c + this->key);
+    newC = tolower(c) + this->key;
+    if (newC > 'z') newC -= CaesarCipher::diff;
+    ciphertext += (newC);
   }
   return ciphertext;
 }
 
 std::string CaesarCipher::decrypt(std::string ciphertext) {
   std::string plaintext = "";
+  char newC;
   for (char c : ciphertext) {
-    plaintext += (c - this->key);
+    newC = tolower(c) - this->key;
+    if (newC < 'a') newC += CaesarCipher::diff;
+    plaintext += newC;
   }
   return plaintext;
 }
