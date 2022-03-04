@@ -3,4 +3,4 @@ project(Ciphers)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Ciphers main.cpp Cipher.cpp CaesarCipher.cpp)
+add_executable(Ciphers main.cpp Cipher.cpp CaesarCipher.cpp MonoAlphabeticCipher.cpp)

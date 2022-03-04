@@ -1,9 +1,10 @@
 #include <iostream>
 #include "CaesarCipher.cpp"
+#include "MonoAlphabeticCipher.cpp"
 
 int main() {
-  CaesarCipher cipher = CaesarCipher(1);
-  std::string p = "ciaosonounaz";
+  MonoAlphabeticCipher cipher = MonoAlphabeticCipher("mblcqdakihjnsepyovgfrxuwzt");
+  std::string p = "ciao";
   std::string c = cipher.encrypt(p);
   std::cout << c << std::endl;
   std::cout << cipher.decrypt(c) << std::endl;
