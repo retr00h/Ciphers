@@ -52,6 +52,8 @@ std::vector<std::string> PlayfairCipher::findPairs(const std::string &str) {
   for (int i = 0; i <= str.length(); i++) {
     if (i % 2 == 0) {
       if (!pair.empty()) {
+        if (pair[0] == 'j') pair[0] = 'i';
+        if (pair[1] == 'j') pair[1] = 'i';
         if (pair[0] != 'x' and pair[0] == pair[1]) {
           std::string pairToAdd;
           pairToAdd += pair[0];
